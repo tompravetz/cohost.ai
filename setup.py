@@ -38,7 +38,7 @@ setup(
     
     # Metadata
     author="Tom Pravetz",
-    author_email="tompravetz@example.com",
+    author_email="pravetz.tom@gmail.com",
     description="AI-powered streaming co-host with voice recognition and TTS",
     long_description=read_readme(),
     long_description_content_type="text/markdown",

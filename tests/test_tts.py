@@ -49,7 +49,7 @@ def test_tts() -> bool:
         bool: True if all tests pass, False otherwise
     """
     # Configuration
-    credentials_path = "mike-442823-9d2a2fbbe9a4.json"
+    credentials_path = "cohost-442823-9d2a2fbbe9a4.json"
     test_device_index = 7  # Recommended device from audio test
     test_text = "Hello! This is a test of the text-to-speech system. Can you hear me?"
 

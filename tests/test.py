@@ -155,9 +155,9 @@ def list_audio_devices() -> None:
 
     print()
     print("💡 For streaming setup:")
-    print("   • Use Chat output for TTS so viewers can hear Mike")
+    print("   • Use Chat output for TTS so viewers can hear the AI responses")
     print("   • Use Chat Mic input for voice recognition")
-    print("   • This keeps Mike separate from your game/music audio")
+    print("   • This keeps the AI audio separate from your game/music audio")
 
     # Clean up PyAudio
     p.terminate()

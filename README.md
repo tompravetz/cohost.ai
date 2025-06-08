@@ -28,16 +28,6 @@ A sophisticated, production-ready AI streaming companion that provides real-time
 - **⚙️ Flexible Configuration**: Environment-based configuration with validation
 - **📋 Professional Logging**: Structured logging with multiple output formats
 
-## Character: Mike Oxlong
-
-Mike is a sarcastic, misanthropic Canadian character who reluctantly appears on TompTTV's Twitch stream. He's known for:
-- Overly sarcastic and snarky responses
-- Extreme sassiness and misanthropy
-- Confidence that he's not an AI (but suspicious everyone else might be)
-- Using Twitch emotes like "POG" in daily speech
-- Creating custom exclamations with profanity
-- Short, punchy responses (1-2 paragraphs)
-
 ## Prerequisites
 
 1. **Python 3.8+**
@@ -53,8 +43,6 @@ Mike is a sarcastic, misanthropic Canadian character who reluctantly appears on 
    git clone <repository-url>
    cd "CoHost.AI"
    ```
-
-   **Note**: If your directory is named "Mike 2.0" (with a space), you may encounter issues with the setup script. Run `migrate_directory.bat` on Windows to rename it to "CoHost.AI", or manually rename the directory.
 
 2. **Create virtual environment**:
    ```bash
@@ -161,14 +149,14 @@ CLI_REFRESH_RATE=0.1
 
 ## Voice Input Usage
 
-Once running, you can interact with Mike in two ways:
+Once running, you can interact with CoHost.AI in two ways:
 
 1. **Chat Integration**: Messages from Twitch chat via Streamer.bot
 2. **Voice Input**: Use keyboard shortcuts for push-to-talk
    - Press **F1** (or your configured key) to start recording
    - Speak your message
    - Press **F2** (or your configured key) to stop recording
-   - Your speech will be converted to text and sent to Mike for response
+   - Your speech will be converted to text and sent to CoHost.AI for response
 
 ## Project Structure
 
@@ -206,7 +194,7 @@ CoHost.AI/
 ### Common Issues
 
 1. **Setup fails with "is not recognized as internal or external command"**
-   - This happens when the directory name contains spaces (e.g., "Mike 2.0")
+   - This happens when the directory name contains spaces
    - **Solution 1**: Run `migrate_directory.bat` to rename to "CoHost.AI"
    - **Solution 2**: Manually rename the directory to remove spaces
    - **Solution 3**: Use the updated `setup.py` which handles spaces better
