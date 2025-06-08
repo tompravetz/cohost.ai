@@ -122,7 +122,36 @@ AUDIO_BUFFER_SIZE=4096
 # UI Configuration
 SHOW_DETAILED_LOGS=false
 CLI_REFRESH_RATE=0.1
+
+# AI Configuration
+AI_SYSTEM_PROMPT_FILE=system_prompt.txt
 ```
+
+## AI Character Customization
+
+CoHost.AI uses a simple text file to define your AI character's personality and behavior:
+
+1. **Edit the system prompt**: Open `system_prompt.txt` in any text editor
+2. **Define your character**: Write their personality, background, and response rules
+3. **Restart the application**: Changes take effect when you restart CoHost.AI
+
+### Example Characters
+
+**Sarcastic Gaming Buddy**:
+```
+You are SnarkyBot, a witty gaming co-host who's seen it all.
+You're sarcastic but never mean-spirited, and you love roasting bad gameplay.
+Keep responses short and punchy. Use gaming terms and Twitch emotes naturally.
+```
+
+**Professional Assistant**:
+```
+You are StreamAssistant, a professional and knowledgeable co-host.
+You provide helpful information and maintain a polished stream environment.
+Keep language appropriate and responses informative but concise.
+```
+
+For detailed guidance, see [SYSTEM_PROMPT_GUIDE.md](SYSTEM_PROMPT_GUIDE.md).
 
 ## Usage
 

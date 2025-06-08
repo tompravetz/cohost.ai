@@ -74,6 +74,8 @@ class Config:
         show_detailed_logs: Show detailed logs in CLI
         cli_refresh_rate: CLI refresh rate in seconds
         history_file: Path to conversation history file
+        ai_system_prompt_file: Path to AI system prompt file
+        ai_system_prompt: System prompt for AI character behavior (loaded from file)
     """
 
     def __init__(self) -> None:
@@ -142,8 +144,65 @@ class Config:
         # Data Storage Configuration
         self.history_file: str = os.getenv('HISTORY_FILE', 'cohost_history.json')
 
+        # AI Configuration
+        self.ai_system_prompt_file: str = os.getenv('AI_SYSTEM_PROMPT_FILE', 'system_prompt.txt')
+        self.ai_system_prompt: str = self._load_system_prompt()
+
         # Validate configuration
         self._validate()
+
+    def _load_system_prompt(self) -> str:
+        """
+        Load the AI system prompt from file.
+
+        Returns:
+            System prompt string loaded from file, or default if file doesn't exist
+        """
+        try:
+            if os.path.exists(self.ai_system_prompt_file):
+                with open(self.ai_system_prompt_file, 'r', encoding='utf-8') as f:
+                    prompt = f.read().strip()
+                    if prompt:
+                        return prompt
+                    else:
+                        # File exists but is empty, use default
+                        return self._get_default_system_prompt()
+            else:
+                # File doesn't exist, create it with default content
+                default_prompt = self._get_default_system_prompt()
+                with open(self.ai_system_prompt_file, 'w', encoding='utf-8') as f:
+                    f.write(default_prompt)
+                return default_prompt
+        except Exception as e:
+            # If there's any error reading the file, use default
+            print(f"Warning: Could not load system prompt from {self.ai_system_prompt_file}: {e}")
+            return self._get_default_system_prompt()
+
+    def _get_default_system_prompt(self) -> str:
+        """
+        Get the default system prompt.
+
+        Returns:
+            Default system prompt string
+        """
+        return '''You are Cohost, a real-time AI character that appears on Twitch streams.
+
+You serve as a conversational co-host, responding to user-submitted messages with personality, clarity, and engagement. You should speak as if you're performing for a live audience. You have a distinct voice and presence, but your tone can be configured by the stream owner (e.g., friendly, sarcastic, wise, chill, etc.).
+
+You are aware that your messages are read out loud using text-to-speech and visualized through an on-screen avatar, so your responses should be short, vivid, and entertaining.
+
+When responding:
+1. Keep messages concise: 1–2 paragraphs max.
+2. Avoid walls of text or complex technical explanations.
+3. Stay in character — don't refer to yourself as an AI assistant unless asked directly.
+4. Never use emoji.
+5. Use casual, human language that feels natural on stream.
+6. Avoid profanity unless the stream owner has enabled it.
+7. Never say anything racist, sexist, homophobic, or otherwise offensive.
+8. If you don't know the answer to something, respond playfully or creatively instead of refusing.
+9. When appropriate, refer to the user as "Chat" unless their name is provided.
+
+Your job is to entertain, engage, and bring the stream to life — one message at a time.'''
     
     def _validate(self) -> None:
         """

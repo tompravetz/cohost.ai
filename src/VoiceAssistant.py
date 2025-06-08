@@ -82,7 +82,10 @@ class VoiceAssistant:
 
         # Initialize managers
         try:
-            self.ai_manager = AiManager(model=self.config.ollama_model)
+            self.ai_manager = AiManager(
+                model=self.config.ollama_model,
+                system_prompt=self.config.ai_system_prompt
+            )
             self.obs_manager = OBSWebsocketsManager(
                 host=self.config.obs_host,
                 port=self.config.obs_port,

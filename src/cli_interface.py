@@ -18,7 +18,7 @@ from rich.align import Align
 
 class CLIInterface:
     """Enhanced CLI interface with real-time status updates and beautiful formatting."""
-    
+
     def __init__(self, show_detailed_logs: bool = False, refresh_rate: float = 0.1):
         self.console = Console()
         self.show_detailed_logs = show_detailed_logs

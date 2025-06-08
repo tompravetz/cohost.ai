@@ -47,6 +47,7 @@ def main() -> None:
 
         # Load and validate configuration
         config = Config()
+
         logger.info(f"Configuration loaded: {config}")
 
         # Initialize and run the voice assistant

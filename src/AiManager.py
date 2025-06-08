@@ -32,22 +32,29 @@ class AiManager:
         system_prompt: Character personality and behavior instructions
     """
 
-    def __init__(self, model: str = "mistral") -> None:
+    def __init__(self, model: str = "mistral", system_prompt: str = None) -> None:
         """
         Initialize the AI Manager.
 
         Args:
             model: Ollama model name to use (default: "mistral")
+            system_prompt: Custom system prompt for AI character behavior
 
         Raises:
             ImportError: If Ollama package is not available
         """
         self.model: str = model
+        self.system_prompt: str = system_prompt or self._get_default_system_prompt()
         logger.info(f"Initialized AI Manager with model: {model}")
 
-        # Character personality and behavior instructions
-        self.system_prompt: str = '''
-You are Cohost, a real-time AI character that appears on Twitch streams.
+    def _get_default_system_prompt(self) -> str:
+        """
+        Get the default system prompt if none is provided.
+
+        Returns:
+            Default system prompt string
+        """
+        return '''You are Cohost, a real-time AI character that appears on Twitch streams.
 
 You serve as a conversational co-host, responding to user-submitted messages with personality, clarity, and engagement. You should speak as if you're performing for a live audience. You have a distinct voice and presence, but your tone can be configured by the stream owner (e.g., friendly, sarcastic, wise, chill, etc.).
 
@@ -64,8 +71,7 @@ When responding:
 8. If you don't know the answer to something, respond playfully or creatively instead of refusing.
 9. When appropriate, refer to the user as "Chat" unless their name is provided.
 
-Your job is to entertain, engage, and bring the stream to life — one message at a time.
-'''
+Your job is to entertain, engage, and bring the stream to life — one message at a time.'''
 
     def chat_with_history(self, question: str) -> str:
         """
