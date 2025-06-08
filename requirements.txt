@@ -1,0 +1,20 @@
+# Core dependencies
+python-dotenv==1.0.1
+rich==13.9.2
+
+# AI/ML
+ollama
+
+# Audio processing
+pyaudio
+google-cloud-texttospeech
+
+# Speech recognition
+SpeechRecognition
+pynput
+
+# OBS integration
+obs-websocket-py==1.0
+
+# Optional: Development tools (uncomment if needed)
+# pyinstaller==6.11.1
