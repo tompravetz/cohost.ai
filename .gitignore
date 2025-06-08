@@ -76,7 +76,7 @@ Thumbs.db
 # Credentials and sensitive files (NEVER COMMIT THESE!)
 *credentials*.json
 *service-account*.json
-cohost-*.json
+cohostai-*.json
 google-*.json
 .env
 .env.local
