@@ -372,6 +372,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ by [Tom Pravetz](https://github.com/tompravetz)**
+**Built with ❤️ by [Tom Pravetz](https://www.tomprav.dev/)**
 
 *CoHost.AI - Bringing AI personalities to life in streaming environments*
